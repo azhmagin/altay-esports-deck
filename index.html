@@ -257,15 +257,18 @@ body {
 /* Slide 0: Cover */
 .cover-content { text-align:center; z-index:1; }
 .cover-logo {
-  width:180px; height:180px;
-  border-radius:30px;
-  overflow:hidden;
-  margin:0 auto 32px;
-  border:2px solid var(--border);
-  box-shadow:var(--glow-cyan);
+  width:200px;
+  margin:0 auto 28px;
   animation:float 4s ease-in-out infinite;
 }
-.cover-logo img { width:100%; height:100%; object-fit:cover; }
+.cover-logo img {
+  width:100%;
+  height:auto;
+  display:block;
+  /* remove white bg on dark theme */
+  mix-blend-mode:multiply;
+  filter:brightness(1.05);
+}
 @keyframes float {
   0%,100% { transform:translateY(0); }
   50% { transform:translateY(-12px); }
@@ -677,7 +680,7 @@ body {
   .grid-2,.grid-3,.grid-4,.grid-5 { grid-template-columns:1fr; gap:10px; }
 
   /* Cover */
-  .cover-logo { width:110px; height:110px; border-radius:18px; margin-bottom:16px; }
+  .cover-logo { width:150px; margin-bottom:16px; }
   .cover-tagline { font-size:13px; margin-top:8px; }
   .cover-meta { margin-top:16px; gap:8px; }
 
