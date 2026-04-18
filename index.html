@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALTAY ESPORTS — Roadmap 2025–2030</title>
+<meta name="description" content="Altay Esports — инвестиционная презентация и roadmap киберспортивной организации из Казахстана. CS2, HLTV, международная арена.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow:hidden; }
+body {
+  font-family:'Inter',sans-serif;
+  background:#0a0514;
+  color:#e8e0f0;
+  overflow:hidden;
+  height:100vh;
+  width:100vw;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  --cyan:#c97bdb;
+  --cyan-dim:rgba(201,123,219,.15);
+  --blue:#9b59b6;
+  --blue-dim:rgba(155,89,182,.15);
+  --purple:#7c3aed;
+  --magenta:#e84393;
+  --gold:#f0a0c0;
+  --bg-dark:#0a0514;
+  --bg-card:rgba(18,8,30,.85);
+  --bg-card-solid:#120820;
+  --border:rgba(201,123,219,.15);
+  --text-primary:#f4f0f8;
+  --text-secondary:#a899bb;
+  --text-muted:#6b5a7e;
+  --glow-cyan:0 0 30px rgba(201,123,219,.3);
+  --glow-blue:0 0 30px rgba(155,89,182,.25);
+  --glow-magenta:0 0 30px rgba(232,67,147,.3);
+  --slide-transition:0.7s cubic-bezier(.4,0,.2,1);
+}
+
+/* ========== SLIDE SYSTEM ========== */
+.slide {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:60px 80px;
+  opacity:0;
+  pointer-events:none;
+  overflow-y:auto;
+}
+.slide.active {
+  opacity:1;
+  pointer-events:all;
+}
+
+/* ========== GLOBAL BACKGROUND ========== */
+.bg-grid {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  background:
+    linear-gradient(rgba(155,89,182,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155,89,182,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove {
+  0% { transform:translate(0,0); }
+  100% { transform:translate(60px,60px); }
+}
+.bg-gradient {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124,58,237,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(232,67,147,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(155,89,182,.06) 0%, transparent 50%);
+}
+
+/* ========== NAVIGATION ========== */
+.nav-bar {
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 24px;
+  background:rgba(10,5,20,.92);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:50px;
+  box-shadow:var(--glow-cyan);
+}
+.nav-dot {
+  width:10px; height:10px;
+  border-radius:50%;
+  background:var(--text-muted);
+  cursor:pointer;
+  transition:all .3s;
+  border:none;
+  outline:none;
+}
+.nav-dot.active {
+  background:var(--magenta);
+  box-shadow:0 0 12px rgba(232,67,147,.6);
+  width:28px;
+  border-radius:5px;
+}
+.nav-dot:hover { background:var(--magenta); opacity:.7; }
+.nav-arrows {
+  display:flex;
+  gap:6px;
+  margin-left:16px;
+}
+.nav-arrow {
+  width:36px; height:36px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--cyan);
+  font-size:16px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .3s;
+  /* Touch-friendly */
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  user-select:none;
+}
+.nav-arrow:hover {
+  background:var(--cyan-dim);
+  border-color:var(--cyan);
+}
+.slide-counter {
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--text-muted);
+  margin-right:12px;
+  min-width:45px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+.heading-xl {
+  font-family:'Orbitron',sans-serif;
+  font-weight:800;
+  font-size:clamp(36px,5vw,64px);
+  line-height:1.1;
+  letter-spacing:-1px;
+  background:linear-gradient(135deg,#fff 0%,var(--magenta) 40%,var(--purple) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.heading-lg {
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:clamp(24px,3.5vw,42px);
+  line-height:1.2;
+  color:var(--text-primary);
+}
+.heading-md {
+  font-family:'Orbitron',sans-serif;
+  font-weight:600;
+  font-size:clamp(18px,2.5vw,28px);
+  color:var(--text-primary);
+}
+.heading-sm {
+  font-family:'Orbitron',sans-serif;
+  font-weight:600;
+  font-size:14px;
+  color:var(--cyan);
+  text-transform:uppercase;
+  letter-spacing:3px;
+}
+.body-text {
+  font-size:16px;
+  line-height:1.7;
+  color:var(--text-secondary);
+  max-width:700px;
+}
+.label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--text-muted);
+}
+
+/* ========== CARD / GLASS ========== */
+.glass-card {
+  background:var(--bg-card);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+  transition:all .4s;
+}
+.glass-card:hover {
+  border-color:rgba(201,123,219,.3);
+  box-shadow:var(--glow-cyan);
+  transform:translateY(-2px);
+}
+
+/* ========== BADGE ========== */
+.badge {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.badge-cyan { background:rgba(232,67,147,.12); color:var(--magenta); border:1px solid rgba(232,67,147,.3); }
+.badge-gold { background:rgba(240,160,192,.1); color:var(--gold); border:1px solid rgba(240,160,192,.25); }
+.badge-purple { background:rgba(124,58,237,.12); color:var(--purple); border:1px solid rgba(124,58,237,.3); }
+.badge-blue { background:var(--blue-dim); color:var(--cyan); border:1px solid rgba(155,89,182,.25); }
+
+/* ========== STAT BLOCK ========== */
+.stat-value {
+  font-family:'Orbitron',monospace;
+  font-weight:800;
+  font-size:clamp(28px,4vw,48px);
+  background:linear-gradient(135deg,var(--magenta),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-label {
+  font-size:13px;
+  color:var(--text-muted);
+  margin-top:4px;
+}
+
+/* ========== GRIDS ========== */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+
+/* ========== SLIDE-SPECIFIC ========== */
+/* Slide 0: Cover */
+.cover-content { text-align:center; z-index:1; }
+.cover-logo {
+  width:180px; height:180px;
+  border-radius:30px;
+  overflow:hidden;
+  margin:0 auto 32px;
+  border:2px solid var(--border);
+  box-shadow:var(--glow-cyan);
+  animation:float 4s ease-in-out infinite;
+}
+.cover-logo img { width:100%; height:100%; object-fit:cover; }
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-12px); }
+}
+.cover-tagline {
+  font-size:18px;
+  color:var(--text-secondary);
+  margin-top:16px;
+  font-style:italic;
+}
+.cover-meta {
+  margin-top:32px;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+.pulse-dot {
+  display:inline-block;
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--magenta);
+  margin-right:8px;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(232,67,147,.5); }
+  50% { opacity:.6; box-shadow:0 0 0 8px rgba(232,67,147,0); }
+}
+
+/* Timeline */
+.timeline {
+  position:relative;
+  padding-left:40px;
+  max-width:900px;
+  width:100%;
+}
+.timeline::before {
+  content:'';
+  position:absolute;
+  left:14px;
+  top:0; bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom, var(--magenta), var(--purple), var(--cyan));
+}
+.timeline-item {
+  position:relative;
+  margin-bottom:28px;
+  padding-left:24px;
+}
+.timeline-item::before {
+  content:'';
+  position:absolute;
+  left:-30px;
+  top:6px;
+  width:12px; height:12px;
+  border-radius:50%;
+  background:var(--magenta);
+  box-shadow:0 0 12px rgba(232,67,147,.5);
+}
+.timeline-item.gold::before { background:var(--gold); box-shadow:0 0 12px rgba(255,215,0,.5); }
+.timeline-item.purple::before { background:var(--purple); box-shadow:0 0 12px rgba(124,92,252,.5); }
+.timeline-year {
+  font-family:'Orbitron',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  color:var(--cyan);
+  letter-spacing:2px;
+  margin-bottom:4px;
+}
+.timeline-title {
+  font-weight:700;
+  font-size:17px;
+  color:var(--text-primary);
+  margin-bottom:3px;
+}
+.timeline-desc {
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.5;
+}
+
+/* Player card */
+.player-card {
+  text-align:center;
+  padding:0;
+  overflow:hidden;
+  position:relative;
+}
+.player-accent {
+  height:4px;
+  width:100%;
+  border-radius:16px 16px 0 0;
+}
+.player-body {
+  padding:20px 16px 24px;
+}
+.player-role-icon {
+  font-size:32px;
+  margin-bottom:8px;
+  display:block;
+}
+.player-nick {
+  font-family:'Orbitron',sans-serif;
+  font-weight:800;
+  font-size:18px;
+  color:var(--text-primary);
+  margin-bottom:6px;
+  letter-spacing:0.5px;
+}
+.player-role {
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--cyan);
+  margin-bottom:10px;
+}
+.player-name {
+  font-size:12px;
+  color:var(--text-muted);
+}
+.player-flag {
+  font-size:16px;
+  margin-left:4px;
+}
+
+/* Roadmap phases */
+.phase-card {
+  position:relative;
+  padding-top:8px;
+}
+.phase-card .phase-period {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--cyan);
+  margin-bottom:8px;
+  letter-spacing:1px;
+}
+.phase-card .phase-title {
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  color:var(--text-primary);
+  margin-bottom:10px;
+}
+.phase-card ul {
+  list-style:none;
+  padding:0;
+}
+.phase-card li {
+  position:relative;
+  padding-left:16px;
+  font-size:13px;
+  color:var(--text-secondary);
+  line-height:1.8;
+}
+.phase-card li::before {
+  content:'›';
+  position:absolute;
+  left:0;
+  color:var(--cyan);
+  font-weight:700;
+}
+.phase-number {
+  font-family:'Orbitron',sans-serif;
+  font-size:48px;
+  font-weight:900;
+  color:rgba(232,67,147,.08);
+  position:absolute;
+  top:-8px;
+  right:12px;
+}
+
+/* Market stat */
+.market-stat {
+  text-align:center;
+  padding:20px;
+}
+
+/* Vision pillar */
+.vision-pillar {
+  text-align:center;
+  padding:24px 20px;
+}
+.vision-icon {
+  font-size:36px;
+  margin-bottom:12px;
+}
+.vision-title {
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:15px;
+  color:var(--text-primary);
+  margin-bottom:8px;
+}
+.vision-desc {
+  font-size:13px;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+
+/* Achievement badge */
+.achievement {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 20px;
+}
+.achievement-icon {
+  font-size:28px;
+  width:48px;
+  text-align:center;
+  flex-shrink:0;
+}
+.achievement-text { flex:1; }
+.achievement-title {
+  font-weight:700;
+  font-size:15px;
+  color:var(--text-primary);
+  margin-bottom:2px;
+}
+.achievement-sub {
+  font-size:13px;
+  color:var(--text-secondary);
+}
+
+/* CTA */
+.cta-block {
+  text-align:center;
+  padding:48px 32px;
+  border:2px solid var(--magenta);
+  box-shadow:var(--glow-magenta);
+}
+.cta-block .heading-lg {
+  background:linear-gradient(135deg,#fff,var(--magenta));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:16px;
+}
+.cta-email {
+  font-family:'JetBrains Mono',monospace;
+  font-size:18px;
+  color:var(--magenta);
+  margin-top:20px;
+  padding:12px 28px;
+  border:1px solid var(--magenta);
+  border-radius:8px;
+  display:inline-block;
+}
+.cta-links {
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin-top:20px;
+}
+.cta-link {
+  color:var(--text-secondary);
+  font-size:14px;
+  text-decoration:none;
+  transition:color .3s;
+}
+.cta-link:hover { color:var(--cyan); }
+
+/* Scrollable inner */
+.slide-inner {
+  width:100%;
+  max-width:1200px;
+  max-height:calc(100vh - 140px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,123,219,.2) transparent;
+  padding-right:8px;
+}
+.slide-inner::-webkit-scrollbar { width:4px; }
+.slide-inner::-webkit-scrollbar-thumb { background:rgba(201,123,219,.2); border-radius:4px; }
+
+.section-gap { margin-bottom:40px; }
+.small-gap { margin-bottom:20px; }
+.flex-center { display:flex; align-items:center; justify-content:center; }
+
+/* Keyboard hint */
+.kb-hint {
+  position:fixed;
+  top:20px;
+  right:24px;
+  z-index:999;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--text-muted);
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.kb-key {
+  padding:2px 8px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background:rgba(255,255,255,.03);
+  font-size:10px;
+}
+
+/* Divider */
+.divider {
+  width:60px;
+  height:2px;
+  background:linear-gradient(90deg,var(--magenta),var(--purple));
+  margin:20px 0;
+  border-radius:2px;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  z-index:1001;
+  background:rgba(255,255,255,.05);
+}
+.progress-bar {
+  height:100%;
+  background:linear-gradient(90deg,var(--magenta),var(--purple),var(--cyan));
+  transition:width .5s ease;
+  border-radius:0 2px 2px 0;
+}
+
+/* ========== RESPONSIVE — TABLET (≤900px) ========== */
+@media(max-width:900px){
+  .slide { padding:32px 28px 100px; }
+  .grid-3,.grid-4,.grid-5 { grid-template-columns:1fr 1fr; gap:16px; }
+  .grid-2 { grid-template-columns:1fr; gap:16px; }
+  .cover-meta { flex-direction:column; align-items:center; gap:10px; }
+  .heading-xl { font-size:clamp(28px,6vw,52px); }
+  .heading-lg { font-size:clamp(20px,4vw,34px); }
+  .timeline { padding-left:28px; }
+}
+
+/* ========== RESPONSIVE — MOBILE (≤600px) ========== */
+@media(max-width:600px){
+
+  /* ——— CRITICAL: slide must NOT cover nav bar ——— */
+  .slide {
+    inset: 0 0 76px 0;      /* leave 76px at bottom for nav */
+    padding: 20px 16px 0;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  .slide-inner {
+    max-height: calc(100dvh - 160px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 4px;
+    padding-bottom: 12px;
+  }
+  #slide-0 {
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px 0;
+  }
+
+  /* ——— NAV BAR: simplified, big touch targets ——— */
+  .nav-bar {
+    bottom: 12px;
+    padding: 8px 20px;
+    gap: 12px;
+    max-width: calc(100vw - 32px);
+    border-radius: 40px;
+    backdrop-filter: none;  /* iOS: backdrop-filter breaks pointer-events on fixed els */
+    -webkit-backdrop-filter: none;
+    background: rgba(10,5,20,0.97); /* compensate with solid bg */
+    border-color: rgba(201,123,219,0.3);
+  }
+  /* Hide dots on mobile — too many, no space */
+  .nav-dot { display: none; }
+  /* Big arrow buttons - 52px min touch target (Apple HIG: 44px) */
+  .nav-arrows { margin-left: 0; gap: 12px; }
+  .nav-arrow {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    border-color: rgba(201,123,219,.4);
+  }
+  .nav-arrow:active { background: var(--cyan-dim); }
+  .slide-counter {
+    font-size: 13px;
+    min-width: 52px;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  /* Hide keyboard hint */
+  .kb-hint { display:none; }
+  /* Hide "Нажмите →" on mobile */
+  #slide-0 p[style*="text-muted"] { display:none; }
+
+  /* Typography */
+  .heading-xl { font-size: clamp(26px,8vw,40px); letter-spacing:-0.5px; }
+  .heading-lg { font-size: clamp(20px,6vw,30px); }
+  .heading-md { font-size: clamp(16px,4.5vw,22px); }
+  .heading-sm { font-size: 11px; letter-spacing: 2px; }
+  .body-text  { font-size: 14px; line-height: 1.65; }
+  .stat-value { font-size: clamp(22px,7vw,34px) !important; }
+  .stat-label { font-size: 11px; }
+  .label { font-size: 10px; }
+
+  /* Grids */
+  .grid-2,.grid-3,.grid-4,.grid-5 { grid-template-columns:1fr; gap:10px; }
+
+  /* Cover */
+  .cover-logo { width:110px; height:110px; border-radius:18px; margin-bottom:16px; }
+  .cover-tagline { font-size:13px; margin-top:8px; }
+  .cover-meta { margin-top:16px; gap:8px; }
+
+  /* Cards */
+  .glass-card { padding:16px; border-radius:12px; }
+  .achievement { gap:10px; padding:12px 14px; }
+  .achievement-icon { font-size:20px; width:32px; }
+  .achievement-title { font-size:13px; }
+  .achievement-sub { font-size:11px; }
+
+  /* Player cards — 2 columns */
+  #slide-2 .grid-5 { grid-template-columns:1fr 1fr; gap:8px; }
+  .player-nick { font-size:13px; }
+  .player-role-icon { font-size:22px; margin-bottom:4px; }
+  .player-body { padding:12px 8px 16px; }
+  .player-role { font-size:10px; }
+  .player-name { font-size:10px; }
+
+  /* Phase cards */
+  .phase-number { font-size:28px; top:-2px; right:6px; }
+  .phase-title  { font-size:13px; }
+  .phase-card li { font-size:12px; }
+
+  /* Vision pillars — 2 columns */
+  #slide-7 .grid-4 { grid-template-columns:1fr 1fr; gap:8px; }
+  .vision-pillar { padding:16px 12px; }
+  .vision-icon  { font-size:26px; margin-bottom:6px; }
+  .vision-title { font-size:12px; margin-bottom:4px; }
+  .vision-desc  { font-size:11px; }
+
+  /* CTA */
+  .cta-block { padding:28px 16px; }
+  .cta-email { font-size:13px; padding:10px 14px; word-break:break-all; }
+  .cta-links { gap:12px; flex-direction:column; align-items:center; }
+
+  /* Gaps */
+  .section-gap { margin-bottom:20px; }
+  .small-gap   { margin-bottom:10px; }
+  .divider     { margin:12px 0; width:40px; }
+}
+</style>
+</head>
+<body>
+<!-- Background layers -->
+<div class="bg-grid"></div>
+<div class="bg-gradient"></div>
+
+<!-- Progress bar -->
+<div class="progress-bar-container">
+  <div class="progress-bar" id="progressBar" style="width:11.1%"></div>
+</div>
+
+<!-- Keyboard hint -->
+<div class="kb-hint">
+  <span class="kb-key">←</span><span class="kb-key">→</span> навигация
+</div>
+
+<!-- ===== SLIDE 0: COVER ===== -->
+<div class="slide active" id="slide-0">
+  <div class="cover-content">
+    <div class="cover-logo">
+      <img src="altay_hero_banner.png" alt="Altay Esports Logo">
+    </div>
+    <div class="heading-sm" style="margin-bottom:12px;">ROADMAP 2025–2030</div>
+    <h1 class="heading-xl">ALTAY ESPORTS</h1>
+    <p class="cover-tagline">Reach the Peak&nbsp;🏔️ — профессиональная CS2 команда из Казахстана</p>
+    <div class="cover-meta">
+      <span class="badge badge-cyan"><span class="pulse-dot"></span>HLTV Verified</span>
+      <span class="badge badge-gold">🇰🇿 Kazakhstan</span>
+      <span class="badge badge-purple">CS2 Professional</span>
+    </div>
+    <p style="margin-top:48px;color:var(--text-muted);font-size:13px;">
+      Нажмите <span class="kb-key" style="display:inline-block;">→</span> или кликните стрелку ниже
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 1: О КОМАНДЕ + HLTV ===== -->
+<div class="slide" id="slide-1">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">О КОМАНДЕ</div>
+    <h2 class="heading-lg section-gap">Кто мы</h2>
+    <div class="grid-2 section-gap">
+      <div>
+        <p class="body-text" style="margin-bottom:20px;">
+          <strong style="color:var(--text-primary);">Altay Esports</strong> — киберспортивная организация из Казахстана, основанная в <strong style="color:var(--magenta);">августе 2025 года</strong>. Системный проект с первого дня: стабильный контракт, ежедневные тренировки, профессиональная инфраструктура.
+        </p>
+        <p class="body-text" style="margin-bottom:20px;">
+          За <strong style="color:var(--magenta);">8 месяцев</strong> мы прошли путь от основания до <strong style="color:var(--text-primary);">мирового рейтинга HLTV</strong> — главной платформы профессионального Counter-Strike 2.
+        </p>
+        <div class="divider"></div>
+        <div class="glass-card" style="padding:16px 20px;margin-top:12px;">
+          <div class="label" style="margin-bottom:8px;">🌐 HLTV — ВЕРИФИКАЦИЯ</div>
+          <p style="color:var(--text-secondary);font-size:13px;line-height:1.6;">
+            Верифицированный профиль на HLTV означает <strong style="color:var(--magenta);">международное признание</strong>: официальная статистика, глобальный рейтинг, прозрачность всех матчей и показателей для партнёров.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="grid-2" style="gap:16px;">
+          <div class="glass-card market-stat">
+            <div class="stat-value">#238</div>
+            <div class="stat-label">Мировой рейтинг HLTV</div>
+          </div>
+          <div class="glass-card market-stat">
+            <div class="stat-value">#213</div>
+            <div class="stat-label">Пиковый рейтинг (Апр 2026)</div>
+          </div>
+          <div class="glass-card market-stat">
+            <div class="stat-value">TOP 4</div>
+            <div class="stat-label">Центральная Азия</div>
+          </div>
+          <div class="glass-card market-stat">
+            <div class="stat-value">8 мес</div>
+            <div class="stat-label">От основания до HLTV</div>
+          </div>
+        </div>
+        <p class="body-text" style="font-size:14px;font-style:italic;text-align:center;margin-top:16px;">
+          «Reach the Peak» 🏔️ — от фундамента к вершине
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: СОСТАВ ===== -->
+<div class="slide" id="slide-2">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">АКТУАЛЬНЫЙ РОСТЕР</div>
+    <h2 class="heading-lg section-gap">Команда</h2>
+    <div class="grid-5 section-gap">
+      <div class="glass-card player-card">
+        <div class="player-accent" style="background:linear-gradient(90deg,#e84393,#fd79a8);"></div>
+        <div class="player-body">
+          <span class="player-role-icon">⚡</span>
+          <div class="player-nick">kamaz</div>
+          <div class="player-role">In-Game Leader</div>
+          <div class="player-name">Alisher Makhmutov <span class="player-flag">🇰🇬</span></div>
+        </div>
+      </div>
+      <div class="glass-card player-card">
+        <div class="player-accent" style="background:linear-gradient(90deg,#7c3aed,#a855f7);"></div>
+        <div class="player-body">
+          <span class="player-role-icon">🎯</span>
+          <div class="player-nick">nyx13</div>
+          <div class="player-role">AWPer</div>
+          <div class="player-name">Nursultan Zhanseitov <span class="player-flag">🇰🇿</span></div>
+        </div>
+      </div>
+      <div class="glass-card player-card">
+        <div class="player-accent" style="background:linear-gradient(90deg,#9b59b6,#e84393);"></div>
+        <div class="player-body">
+          <span class="player-role-icon">🔫</span>
+          <div class="player-nick">di1ka</div>
+          <div class="player-role">Rifler</div>
+          <div class="player-name">Dias Dauletov <span class="player-flag">🇰🇿</span></div>
+        </div>
+      </div>
+      <div class="glass-card player-card">
+        <div class="player-accent" style="background:linear-gradient(90deg,#c97bdb,#7c3aed);"></div>
+        <div class="player-body">
+          <span class="player-role-icon">🔫</span>
+          <div class="player-nick">ARSPOWER</div>
+          <div class="player-role">Rifler</div>
+          <div class="player-name">Arystan Toktar <span class="player-flag">🇰🇿</span></div>
+        </div>
+      </div>
+      <div class="glass-card player-card">
+        <div class="player-accent" style="background:linear-gradient(90deg,#fd79a8,#a855f7);"></div>
+        <div class="player-body">
+          <span class="player-role-icon">🔫</span>
+          <div class="player-nick">f1NCH</div>
+          <div class="player-role">Rifler</div>
+          <div class="player-name">Nikita Brynskiy <span class="player-flag">🇰🇿</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card" style="max-width:700px;margin:0 auto;text-align:center;">
+      <span class="badge badge-cyan" style="margin-bottom:8px;">Международный состав</span>
+      <p class="body-text" style="margin:12px auto;text-align:center;">
+        Сформировано новое конкурентное ядро. Каждый игрок имеет личную HLTV-страницу с прозрачной статистикой, историей матчей и игровыми показателями.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: ДОСТИЖЕНИЯ ===== -->
+<div class="slide" id="slide-3">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">РЕЗУЛЬТАТЫ</div>
+    <h2 class="heading-lg" style="margin-bottom:32px;">Развитие и достижения</h2>
+    <div class="grid-2">
+      <div>
+        <h3 class="heading-md" style="margin-bottom:20px;font-size:18px;">📅 2025 — Этап формирования</h3>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">🥇</div>
+          <div class="achievement-text">
+            <div class="achievement-title">AMKAL Community Cup</div>
+            <div class="achievement-sub">1 место — первый крупный титул</div>
+          </div>
+        </div>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">🥉</div>
+          <div class="achievement-text">
+            <div class="achievement-title">KOKONISTER Season 3</div>
+            <div class="achievement-sub">3 место — закрепление на сцене</div>
+          </div>
+        </div>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-text">
+            <div class="achievement-title">MySkill Pro League S2</div>
+            <div class="achievement-sub">Топ-4 — HLTV-рейтинговый турнир</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="heading-md" style="margin-bottom:20px;font-size:18px;">📅 2026 — Профессиональный уровень</h3>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">🏅</div>
+          <div class="achievement-text">
+            <div class="achievement-title">Allur Cyberland Cup 2026</div>
+            <div class="achievement-sub">3–4 место • LAN, Костанай • Плей-офф</div>
+          </div>
+        </div>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">⚔️</div>
+          <div class="achievement-text">
+            <div class="achievement-title">META Cup / MPL Series</div>
+            <div class="achievement-sub">Регулярное участие в HLTV-турнирах</div>
+          </div>
+        </div>
+        <div class="glass-card achievement" style="margin-bottom:12px;">
+          <div class="achievement-icon">✅</div>
+          <div class="achievement-text">
+            <div class="achievement-title">Победа над The Unit (BO3)</div>
+            <div class="achievement-sub">Конкурентные игры против HOTU и др.</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <span class="badge badge-gold">🎟️ Прямые инвайты на турниры</span>
+          <span class="badge badge-cyan" style="margin-left:8px;">LAN-опыт</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: АУДИТОРИЯ И ОХВАТ ===== -->
+<div class="slide" id="slide-4">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">АУДИТОРИЯ</div>
+    <h2 class="heading-lg" style="margin-bottom:32px;">Охват и потенциал</h2>
+    <div class="grid-4 section-gap">
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">5 млн</div>
+        <div class="stat-label">Аудитория киберспорта KZ к 2026 *</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">1.5 млн+</div>
+        <div class="stat-label">Активных геймеров в Казахстане *</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">500+</div>
+        <div class="stat-label">Одновременных зрителей на трансляциях</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">~2/мес</div>
+        <div class="stat-label">Турниров ежемесячно (мин. 1)</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="glass-card" style="padding:28px;">
+        <h3 class="heading-md" style="font-size:17px;margin-bottom:12px;">📡 Текущий охват</h3>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🎬 <strong style="color:var(--text-primary);">500+ зрителей</strong> в прямом эфире на местных турнирах — и это только начало
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            ✈️ Публикации в Telegram-каналах: <strong style="color:var(--text-primary);">40 000+</strong> и <strong style="color:var(--text-primary);">1 000+</strong> подписчиков
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🌐 Каждый матч на <strong style="color:var(--text-primary);">HLTV</strong> — глобальная аудитория CS2
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🏟️ LAN-турниры = офлайн-присутствие бренда партнёра
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🗓️ <strong style="color:var(--text-primary);">~24 турнира в год</strong> — регулярная видимость бренда
+          </li>
+        </ul>
+      </div>
+      <div class="glass-card" style="padding:28px;">
+        <h3 class="heading-md" style="font-size:17px;margin-bottom:12px;">🚀 Потенциал роста</h3>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            📊 Игровой рынок KZ: <strong style="color:var(--magenta);">+7% в год</strong> до 2031
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🏔️ Рост рейтинга = доступ к Tier-2 турнирам с <strong style="color:var(--magenta);">тысячами зрителей</strong>
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            📱 KZ — <strong style="color:var(--text-primary);">#1</strong> игровой рынок Центральной Азии
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            📈 Контент-стратегия на 2026–2027 — системный рост соцсетей
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🤝 Зайти сейчас = <strong style="color:var(--gold);">преимущество раннего входа</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:16px;color:var(--text-muted);font-size:11px;text-align:center;">
+      * Данные: Концепция развития киберспорта РК 2025–2029, Astana Times
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5: РЫНОК ===== -->
+<div class="slide" id="slide-5">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">РЫНОК</div>
+    <h2 class="heading-lg" style="margin-bottom:32px;">Рынок киберспорта Казахстана</h2>
+    <div class="grid-4 section-gap">
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">$10M</div>
+        <div class="stat-label">Призовой фонд Games of the Future 2026, Астана</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">PGL</div>
+        <div class="stat-label">PGL Astana 2025 — Tier-1 турнир в Казахстане</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">13</div>
+        <div class="stat-label">Дисциплин на Games of the Future</div>
+      </div>
+      <div class="glass-card market-stat">
+        <div class="stat-value" style="font-size:32px;">2025–<br>2029</div>
+        <div class="stat-label">Гос. стратегия развития киберспорта в РК</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="glass-card" style="padding:28px;">
+        <h3 class="heading-md" style="font-size:17px;margin-bottom:12px;">🇰🇿 Почему Казахстан?</h3>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🏔️ Центральный хаб киберспорта Центральной Азии
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🎮 Исторически сильный регион в CS
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            💰 Государственное финансирование и поддержка
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            📈 Высокий рост интернет-проникновения и мобильного гейминга
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🌍 Games of the Future 2026 — Астана (июль–авг)
+          </li>
+        </ul>
+      </div>
+      <div class="glass-card" style="padding:28px;">
+        <h3 class="heading-md" style="font-size:17px;margin-bottom:12px;">📊 Глобальный контекст</h3>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🌐 Рынок киберспорта растёт устойчиво (спонсорство + реклама)
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🔄 Переход от венчурных моделей к устойчивым экосистемам
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🏗️ Инвестиции в инфраструктуру и лиги
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            📱 Центральная Азия — быстрорастущий рынок с высоким потенциалом
+          </li>
+          <li style="padding:6px 0;color:var(--text-secondary);font-size:14px;">
+            🎯 CS2 — одна из самых стабильных экосистем в esports
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6: ROADMAP ===== -->
+<div class="slide" id="slide-6">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">СТРАТЕГИЯ РАЗВИТИЯ</div>
+    <h2 class="heading-lg" style="margin-bottom:32px;">Roadmap</h2>
+    <div class="grid-3 section-gap">
+      <div class="glass-card phase-card">
+        <div class="phase-number">01</div>
+        <div class="phase-period">0–6 МЕСЯЦЕВ</div>
+        <div class="phase-title" style="color:var(--magenta);">Стабилизация</div>
+        <ul>
+          <li>Стабилизация текущего состава</li>
+          <li>Регулярные HLTV-турниры</li>
+          <li>Закрепление в TopN Центральной Азии</li>
+          <li>Усиление тренировочного контента</li>
+          <li>Рост медиа-присутствия</li>
+        </ul>
+      </div>
+      <div class="glass-card phase-card">
+        <div class="phase-number">02</div>
+        <div class="phase-period">6–12 МЕСЯЦЕВ</div>
+        <div class="phase-title" style="color:var(--cyan);">Лидерство</div>
+        <ul>
+          <li>Топ-1–2 Казахстана / ЦА</li>
+          <li>Наём тренера и аналитика</li>
+          <li>Стабильные LAN-результаты</li>
+          <li>Партнёрские соглашения</li>
+          <li>Контент-стратегия</li>
+        </ul>
+      </div>
+      <div class="glass-card phase-card">
+        <div class="phase-number">03</div>
+        <div class="phase-period">1–2 ГОДА</div>
+        <div class="phase-title" style="color:var(--purple);">Международный выход</div>
+        <ul>
+          <li>Международные квалификации</li>
+          <li>Tier-2 → Tier-1 траектория</li>
+          <li>Развитие бренда в СНГ</li>
+          <li>Academy-состав</li>
+          <li>Рост до Топ-150 HLTV</li>
+        </ul>
+      </div>
+    </div>
+    <div class="glass-card" style="text-align:center;padding:20px;max-width:800px;margin:0 auto;">
+      <div class="label" style="margin-bottom:4px;">ТЕКУЩАЯ СТАДИЯ</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px;">
+        <div style="flex:1;height:6px;background:var(--magenta);border-radius:3px;"></div>
+        <div style="flex:1;height:6px;background:rgba(155,89,182,.3);border-radius:3px;"></div>
+        <div style="flex:1;height:6px;background:rgba(124,58,237,.15);border-radius:3px;"></div>
+      </div>
+      <p style="margin-top:8px;color:var(--text-secondary);font-size:13px;">
+        <strong style="color:var(--magenta);">Фаза 1</strong> — Рост и закрепление. HLTV-статус ✓ | LAN-опыт ✓ | Результаты ✓
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 7: ВИДЕНИЕ 2030 ===== -->
+<div class="slide" id="slide-7">
+  <div class="slide-inner">
+    <div class="heading-sm small-gap">ПЯТИЛЕТНЕЕ ВИДЕНИЕ</div>
+    <h2 class="heading-lg" style="margin-bottom:32px;">2025 → 2030</h2>
+    <p class="body-text" style="text-align:center;margin:0 auto 32px;max-width:600px;">
+      Создание <strong style="color:var(--magenta);">устойчивой киберспортивной организации полного цикла</strong> — от профессиональной команды до индустриального игрока.
+    </p>
+    <div class="grid-4 section-gap">
+      <div class="glass-card vision-pillar">
+        <div class="vision-icon">⚔️</div>
+        <div class="vision-title">Спорт</div>
+        <div class="vision-desc">Международные турниры, стабильный состав, рост до Tier-1</div>
+      </div>
+      <div class="glass-card vision-pillar">
+        <div class="vision-icon">🔥</div>
+        <div class="vision-title">Бренд</div>
+        <div class="vision-desc">Узнаваемость в СНГ, комьюнити, медийное присутствие</div>
+      </div>
+      <div class="glass-card vision-pillar">
+        <div class="vision-icon">🎓</div>
+        <div class="vision-title">Академия</div>
+        <div class="vision-desc">Молодёжный состав, развитие игроков, система подготовки</div>
+      </div>
+      <div class="glass-card vision-pillar">
+        <div class="vision-icon">🇰🇿</div>
+        <div class="vision-title">Индустрия</div>
+        <div class="vision-desc">Развитие киберспорта в Казахстане, работа с молодёжью</div>
+      </div>
+    </div>
+    <div class="glass-card" style="max-width:800px;margin:0 auto;padding:24px 32px;">
+      <h3 class="heading-md" style="font-size:16px;margin-bottom:12px;">🏛️ Связь с государственной стратегией</h3>
+      <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;">
+        Altay Esports полностью соответствует <strong style="color:var(--gold);">курсу развития киберспорта РК (2025–2029)</strong>: развитие профессиональных команд, участие в международных турнирах, рост индустрии. Команда уже представляет регион на HLTV-уровне и участвует в международной системе CS2.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 8: CTA ===== -->
+<div class="slide" id="slide-8">
+  <div class="slide-inner" style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 140px);">
+    <div class="glass-card cta-block" style="max-width:700px;width:100%;">
+      <div style="font-size:56px;margin-bottom:20px;">🏔️</div>
+      <div class="heading-sm" style="margin-bottom:12px;">ПАРТНЁРСТВО</div>
+      <h2 class="heading-lg">Reach the Peak — вместе</h2>
+      <p class="body-text" style="margin:16px auto;text-align:center;max-width:500px;">
+        Altay Esports ищет <strong style="color:var(--text-primary);">стратегического партнёра</strong> для совместного роста. Ваш бренд получит доступ к аудитории киберспорта Казахстана на этапе взрывного роста рынка.
+      </p>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap;">
+        <span class="badge badge-cyan">✓ HLTV Статус</span>
+        <span class="badge badge-gold">✓ LAN-опыт</span>
+        <span class="badge badge-purple">✓ Результаты</span>
+        <span class="badge badge-blue">✓ Стратегия</span>
+      </div>
+      <p style="margin-top:24px;color:var(--text-secondary);font-size:14px;">Свяжитесь для получения медиакита</p>
+      <div class="cta-email">altayesportskz@gmail.com</div>
+      <div class="cta-links">
+        <a class="cta-link" href="https://www.hltv.org/team/13591/altay" target="_blank">🌐 HLTV</a>
+        <a class="cta-link" href="https://www.instagram.com/altay.esports/" target="_blank">📸 Instagram</a>
+      </div>
+      <p style="margin-top:24px;color:var(--text-muted);font-size:12px;">
+        © 2025–2026 Altay Esports • Казахстан
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<div class="nav-bar" id="navBar">
+  <span class="slide-counter" id="slideCounter">01 / 09</span>
+  <button class="nav-dot active" data-slide="0" id="dot-0"></button>
+  <button class="nav-dot" data-slide="1" id="dot-1"></button>
+  <button class="nav-dot" data-slide="2" id="dot-2"></button>
+  <button class="nav-dot" data-slide="3" id="dot-3"></button>
+  <button class="nav-dot" data-slide="4" id="dot-4"></button>
+  <button class="nav-dot" data-slide="5" id="dot-5"></button>
+  <button class="nav-dot" data-slide="6" id="dot-6"></button>
+  <button class="nav-dot" data-slide="7" id="dot-7"></button>
+  <button class="nav-dot" data-slide="8" id="dot-8"></button>
+  <div class="nav-arrows">
+    <button class="nav-arrow" id="prevBtn">‹</button>
+    <button class="nav-arrow" id="nextBtn">›</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const totalSlides = 9;
+  let current = 0;
+  let isAnimating = false;
+
+  const slides = Array.from({length:totalSlides},(_,i)=>document.getElementById('slide-'+i));
+  const dots = Array.from({length:totalSlides},(_,i)=>document.getElementById('dot-'+i));
+  const counter = document.getElementById('slideCounter');
+  const progress = document.getElementById('progressBar');
+
+  // Clean all inline styles and transition classes from a slide
+  function cleanSlide(slide){
+    slide.classList.remove('active','slide-enter-right','slide-enter-left','slide-exit-right','slide-exit-left');
+    slide.style.removeProperty('transform');
+    slide.style.removeProperty('opacity');
+    slide.style.removeProperty('transition');
+    slide.style.removeProperty('pointer-events');
+  }
+
+  function goTo(n){
+    if(isAnimating || n===current || n<0 || n>=totalSlides) return;
+    isAnimating = true;
+
+    const oldSlide = slides[current];
+    const newSlide = slides[n];
+    const goingForward = n > current;
+
+    // 1) Immediately hide old slide with animation
+    oldSlide.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    oldSlide.style.opacity = '0';
+    oldSlide.style.transform = goingForward ? 'translateX(-50px)' : 'translateX(50px)';
+    oldSlide.style.pointerEvents = 'none';
+
+    // 2) Prepare new slide at starting position (no transition yet)
+    newSlide.style.transition = 'none';
+    newSlide.style.opacity = '0';
+    newSlide.style.transform = goingForward ? 'translateX(50px)' : 'translateX(-50px)';
+    newSlide.style.pointerEvents = 'all';
+    newSlide.classList.add('active');
+
+    // 3) Force reflow then animate new slide in
+    void newSlide.offsetWidth;
+    newSlide.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    newSlide.style.opacity = '1';
+    newSlide.style.transform = 'translateX(0)';
+
+    // 4) After transition completes, clean up
+    const transitionDuration = 550; // slightly longer than CSS 500ms
+    setTimeout(()=>{
+      // Clean old slide completely
+      oldSlide.classList.remove('active');
+      cleanSlide(oldSlide);
+
+      // Clean new slide inline styles but keep active
+      newSlide.style.removeProperty('transition');
+      newSlide.style.removeProperty('transform');
+      newSlide.style.removeProperty('opacity');
+
+      isAnimating = false;
+    }, transitionDuration);
+
+    // Update dots
+    dots[current].classList.remove('active');
+    dots[n].classList.add('active');
+    
+    // Update counter
+    counter.textContent = String(n+1).padStart(2,'0')+' / '+String(totalSlides).padStart(2,'0');
+    
+    // Update progress
+    progress.style.width = ((n+1)/totalSlides*100)+'%';
+    
+    // Update current index
+    current = n;
+    
+    // Scroll inner to top
+    const inner = newSlide.querySelector('.slide-inner');
+    if(inner) inner.scrollTop = 0;
+  }
+
+  // Dot clicks
+  dots.forEach((dot,i)=>{
+    dot.addEventListener('click',()=>goTo(i));
+  });
+
+  // Arrow buttons — touchend for iOS reliability, click as fallback
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function tapPrev(e){ e.preventDefault(); e.stopPropagation(); goTo(current-1); }
+  function tapNext(e){ e.preventDefault(); e.stopPropagation(); goTo(current+1); }
+
+  prevBtn.addEventListener('touchend', tapPrev, {passive:false});
+  nextBtn.addEventListener('touchend', tapNext, {passive:false});
+  prevBtn.addEventListener('click', ()=>goTo(current-1));
+  nextBtn.addEventListener('click', ()=>goTo(current+1));
+
+  // Keyboard
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); goTo(current+1); }
+    if(e.key==='ArrowLeft') { e.preventDefault(); goTo(current-1); }
+    if(e.key==='Home') { e.preventDefault(); goTo(0); }
+    if(e.key==='End') { e.preventDefault(); goTo(totalSlides-1); }
+  });
+
+  // Touch swipe — only fire on horizontal swipes, not vertical scrolls
+  let touchStartX = 0;
+  let touchStartY = 0;
+  document.addEventListener('touchstart',(e)=>{
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',(e)=>{
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    // Only navigate when horizontal movement clearly dominates
+    if(Math.abs(diffX) > Math.abs(diffY) * 1.5 && Math.abs(diffX) > 40){
+      diffX > 0 ? goTo(current+1) : goTo(current-1);
+    }
+  });
+
+  // Mouse wheel (throttled)
+  let wheelTimeout;
+  document.addEventListener('wheel',(e)=>{
+    const inner = slides[current].querySelector('.slide-inner');
+    if(inner){
+      const atTop = inner.scrollTop <= 0;
+      const atBottom = inner.scrollTop + inner.clientHeight >= inner.scrollHeight - 2;
+      if(e.deltaY > 0 && !atBottom) return;
+      if(e.deltaY < 0 && !atTop) return;
+    }
+    if(wheelTimeout) return;
+    wheelTimeout = setTimeout(()=>{ wheelTimeout=null; }, 1000);
+    e.deltaY > 0 ? goTo(current+1) : goTo(current-1);
+  },{passive:true});
+
+  // Init — ensure only slide 0 is active, clean all others
+  slides.forEach((s,i)=>{
+    if(i===0){
+      s.classList.add('active');
+      s.style.opacity = '1';
+      s.style.transform = 'translateX(0)';
+    } else {
+      cleanSlide(s);
+    }
+  });
+})();
+</script>
+</body>
+</html>
